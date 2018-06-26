@@ -56,7 +56,7 @@ function deploy_settings_page() {
 </form>
 <form method="post" action="<?php admin_url('admin-post.php'); ?>">
 <input type="hidden" name="action" value="rs_deploy" />
-<?php submit_button(); ?>
+<?php submit_button('Deploy Now'); ?>
 </form>
 </div>
 <?php } ?>
