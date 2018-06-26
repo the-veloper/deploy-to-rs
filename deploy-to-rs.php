@@ -3,10 +3,16 @@
  * Plugin Name: Deploy to RS 
  */
 add_action('admin_menu', 'deploy_menu');
+add_action('admin_post_rs_deploy', 'deploy_rs_deploy');
 
 function deploy_menu() {
     add_menu_page('Deploy', 'Deploy Settings', 'administrator', __FILE__, 'deploy_settings_page' , plugins_url('/images/icon.png', __FILE__));
     add_action('admin_init', 'deploy_settings');
+}
+
+function deploy_rs_deploy() {
+	//convert to static html site
+	//deploy using rs-api
 }
 
 function deploy_settings() {
@@ -47,7 +53,10 @@ function deploy_settings_page() {
     </table>
     
     <?php submit_button(); ?>
-
+</form>
+<form method="post" action="<?php admin_url('admin-post.php'); ?>">
+<input type="hidden" name="action" value="rs_deploy" />
+<?php submit_button(); ?>
 </form>
 </div>
 <?php } ?>
